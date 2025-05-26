@@ -4,3 +4,9 @@ from django.shortcuts import render
 
 def freeclass(request):
     return render(request,'base.html')
+
+from django.shortcuts import render
+
+def login(request):
+    return render(request,'login.html')
+
