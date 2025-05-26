@@ -1,0 +1,82 @@
+html,body {
+    margin: 0;
+    padding: 0;
+}
+.header-container {
+height: 200px;
+background-color: #FF3E35;
+padding-left: 0;
+padding-right: 0; 
+ margin: 0;
+width: 100vw;
+}
+.container-fluid {
+    padding-left: 0 ;
+    padding-right: 0 ;
+    position: relative;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    
+    
+
+}
+.header-left{
+    color: white;
+    font-weight: bold;
+    margin-top: 50px; 
+    margin-left: 155px;
+}
+.header-right{
+    color: white;
+    font-weight: bold;
+    margin-right: 50px; 
+    margin-top: 50px;
+    margin-right: 250px;
+    
+}
+
+.table-container {
+max-width: 700px;
+margin: 80px auto; /* Bootstrap primary blue */
+padding: 20px;
+border-radius: 10px;
+color: white;
+position: absolute;
+top: 90%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+}
+.table-responsive{
+    border-radius: 10px;
+    color: #2BCD88;
+}
+
+.table th{
+    background-color: #1D345E;
+}
+.table td{
+    background-color: #162A4D;
+    color: white;
+}
+.text{
+    color: #2BCD88;
+}
+
+.filter-btn {
+  background-color: #1D345E;    
+  color: white;                 
+  font-size: 18px;              
+  padding: 10px 20px;           
+  border-radius: 8px;           
+  border: none;
+  width: 100px;                 
+}
+
+.filter-btn:hover {
+  background-color: #162A4D;    
+  color: #fff;
+}
