@@ -10,9 +10,7 @@
     <title>Free Class Finder</title>
 </head>
 <body>
-    <header>
         <div class="container-fluid">
-
             <!-- ---header----- -->
             <div class="header-container">
                 <div class="header-content">
@@ -26,7 +24,6 @@
                         <a class="btn  dropdown-toggle filter-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Filter
                         </a>
-
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">All</a></li>
                             <li><a class="dropdown-item" href="#">Available</a></li>
@@ -36,11 +33,12 @@
                     </div>
                 </div>
             </div>
-    </div>
-    </header>
-    <div class="table-container">
+        </div>
+
+        <div class="table-container">
             <table>
-                <tr>
+                <thead>
+                    <tr>
                     <th>Time</th>
                     <th>Class Type</th>
                     <th>Room No</th>
@@ -48,58 +46,29 @@
                     <th>Block</th>
                     <th>Status</th>
                 </tr>
+                </thead>
+                <tbody>
+                    {% for c in classes %}
                 <tr>
-                    <td>10-11AM</td>
-                    <td>class Room</td>
-                    <td>101</td>
-                    <td>Ground Floor</td>
-                    <td>37 Block</td>
-                    <td>Available</td>
-                </tr>
-                <tr>
-                    <td>10-11AM</td>
-                    <td>class Room</td>
-                    <td>101</td>
-                    <td>Ground Floor</td>
-                    <td>37 Block</td>
-                    <td>Available</td>
-                </tr>
-                <tr>
-                    <td>10-11AM</td>
-                    <td>class Room</td>
-                    <td>101</td>
-                    <td>Ground Floor</td>
-                    <td>37 Block</td>
-                    <td>Available</td>
-                </tr>
-                <tr>
-                    <td>10-11AM</td>
-                    <td>class Room</td>
-                    <td>101</td>
-                    <td>Ground Floor</td>
-                    <td>37 Block</td>
-                    <td>Available</td>
-                </tr>
-                <tr>
-                    <td>10-11AM</td>
-                    <td>class Room</td>
-                    <td>101</td>
-                    <td>Ground Floor</td>
-                    <td>37 Block</td>
-                    <td>Available</td>
-                </tr>
-                <tr>
-                    <td>10-11AM</td>
-                    <td>class Room</td>
-                    <td>101</td>
-                    <td>Ground Floor</td>
-                    <td>37 Block</td>
-                    <td>Available</td>
-                </tr>
+                    <td>{{ c.Time}}</td>
+                    <td>{{ c.Room_Type }}</td>
+                    <td>{{ c.Room_No}}</td>
+                    <td>{{ c.Floor }}</td>
+                    <td>{{ c.Block }}</td>
+                    {% if not c.is_occupied %}
+                    <td><span class="badge bg-danger">{{ c.Room_status}}</span></td>
+                    {% else %}
+                    <td><span class="badge bg-danger">{{ c.Room_status}}</span></td>
+                    {% endif %}
+
+                </tr>   
+                {% endfor %}
+                </tbody>
                 
-            </table>
-        </table>
-        </div>
+            </table>          
+        </div>  
+        
+   
         
  
         

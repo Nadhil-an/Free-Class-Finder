@@ -1,3 +1,4 @@
+
 html,body {
     margin: 0;
     padding: 0;
@@ -19,9 +20,7 @@ width: 100vw;
 .header-content{
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    
-    
+    padding: 10px;  
 
 }
 .header-left{
@@ -32,15 +31,12 @@ width: 100vw;
 }
 .header-right{
     color: white;
-    font-weight: bold;
-    margin-right: 50px; 
+    font-weight: bold; 
     margin-top: 50px;
     margin-right: 250px;
     
 }
-.text{
-    color: #2BCD88;
-}
+
 
 .filter-btn {
   background-color: #1D345E;    
@@ -64,16 +60,16 @@ width: 100vw;
     top: 25%;
     left: 24%;
     background-color:purple ;
-    overflow-y: auto;
     border-radius: 10px;
     overflow-y: scroll;
     scrollbar-width: none; 
+    color: black;
 }
 .table-container::-webkit-scrollbar {
   display: none;                /* Chrome, Safari */
 }
 
-table  th, td {
+table th, table td {
     width: 300px; /* Column width */
     height: 100px; /* Row height */
     border-bottom: 1px solid white;
