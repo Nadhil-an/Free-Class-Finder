@@ -1,11 +1,10 @@
 from django.contrib import admin
-from . models import FreeClass
-# Register your models here.
+from import_export.admin import ImportExportModelAdmin
+from .models import FreeClass
 
-class FreeclassAdmin(admin.ModelAdmin):
-    list_display = ('block','free_day','free_hour','room_status','room_type','is_occupied',)
-    list_display_links = ('block',)
-    search_fields = ('block','free_day','free_hour','is_occupied',)
-    list_filter=('block','free_day','free_hour','is_occupied')
-
-admin.site.register(FreeClass,FreeclassAdmin)
+@admin.register(FreeClass)
+class FreeClassAdmin(ImportExportModelAdmin):
+    list_display = ('Block', 'Day', 'Time', 'Room_No', 'Floor', 'Room_Status', 'Room_Type', 'is_occupied',)
+    list_display_links = ('Block',)
+    search_fields = ('Block', 'Day', 'Time', 'is_occupied',)
+    list_filter = ('Block', 'Day', 'Time', 'is_occupied', 'Floor')
