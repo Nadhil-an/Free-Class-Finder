@@ -10,7 +10,7 @@ from .models import FreeClass
 def login(request):
 
     days = ['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY']
-    times = ['9-10AM', '10-11AM', '11-12PM', '12-1PM', '1-2PM', '2-3PM', '3-4PM', '4-5PM']
+    times = ['9-10 AM', '10-11AM', '11-12PM', '12-1PM', '1-2PM', '2-3PM', '3-4PM', '4-5PM']
 
     blocks =FreeClass.objects.values_list('Block',flat=True).distinct()
 
@@ -34,13 +34,8 @@ def searchclass(request):
         print(f"Received → Block: '{block}', Day: '{day}', Time: '{time}'")
 
         classes = FreeClass.objects.filter(Block=block,Day=day,Time=time,is_occupied=True)
-        display_block = classes.filter()
-        print(display_block)
-
-       
-
-
-        
+        for c in classes:
+            print(c.Room_No)
 
         context ={
             'classes':classes,
