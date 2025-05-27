@@ -33,7 +33,7 @@ width: 100vw;
     color: white;
     font-weight: bold; 
     margin-top: 50px;
-    margin-right: 250px;
+    margin-right: 180px;
     
 }
 
@@ -45,7 +45,8 @@ width: 100vw;
   padding: 10px 20px;           
   border-radius: 8px;           
   border: none;
-  width: 100px;                 
+  width: 100px;
+  
 }
 
 .filter-btn:hover {
@@ -54,12 +55,12 @@ width: 100vw;
 }
 
 .table-container{
-    width: 700px;
+    width: 800px;
     height: 500px;
     position: absolute;
     top: 25%;
-    left: 24%;
-    background-color:purple ;
+    left: 18%;
+    
     border-radius: 10px;
     overflow-y: scroll;
     scrollbar-width: none; 

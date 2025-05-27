@@ -19,7 +19,7 @@
                         <h5>Status finder</h5>
                     </div>
                     <div class="header-right">
-                        <h5 class="fw-bold text-uppercase fst-italic">23/wednesday/2035</h5>
+                        <h5 class="fw-bold text-uppercase fst-italic">BLOCK : {{ block }} <br>Time : {{ time }}</h5>
                         <div class="dropdown">
                         <a class="btn  dropdown-toggle filter-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Filter
@@ -56,9 +56,9 @@
                     <td>{{ c.Floor }}</td>
                     <td>{{ c.Block }}</td>
                     {% if not c.is_occupied %}
-                    <td><span class="badge bg-danger">{{ c.Room_status}}</span></td>
+                    <td><span class="badge bg-danger">{{ c.Room_Status}}</span></td>
                     {% else %}
-                    <td><span class="badge bg-danger">{{ c.Room_status}}</span></td>
+                    <td><span class="badge bg-success">{{ c.Room_Status}}</span></td>
                     {% endif %}
 
                 </tr>   
