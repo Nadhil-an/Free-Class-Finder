@@ -48,23 +48,27 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {% for c in classes %}
+        {% if classes %}
+            {% for c in classes %}
                 <tr>
-                    <td>{{ c.Time}}</td>
+                    <td>{{ c.Time }}</td>
                     <td>{{ c.Room_Type }}</td>
-                    <td>{{ c.Room_No}}</td>
+                    <td>{{ c.Room_No }}</td>
                     <td>{{ c.Floor }}</td>
                     <td>{{ c.Block }}</td>
                     {% if not c.is_occupied %}
-                    <td><span class="badge bg-danger">{{ c.Room_Status}}</span></td>
+                        <td><span class="badge bg-danger">{{ c.Room_Status }}</span></td>
                     {% else %}
-                    <td><span class="badge bg-success">{{ c.Room_Status}}</span></td>
+                        <td><span class="badge bg-success">{{ c.Room_Status }}</span></td>
                     {% endif %}
-
-                </tr>   
-                {% endfor %}
-                </tbody>
-                
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="6" class="text-center text-danger fw-bold">NO FREE FOUND!</td>
+            </tr>
+            {% endif %}
+            </tbody>
             </table>          
         </div>  
         
