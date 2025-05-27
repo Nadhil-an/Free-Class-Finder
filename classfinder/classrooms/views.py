@@ -33,7 +33,7 @@ def searchclass(request):
 
         print(f"Received → Block: '{block}', Day: '{day}', Time: '{time}'")
 
-        classes = FreeClass.objects.filter(Block=block,Day=day,Time=time,is_occupied=True)
+        classes = FreeClass.objects.filter(Block=block,Day=day,Time=time,is_occupied=True).order_by('Room_No')
         for c in classes:
             print(c.Room_No)
 
