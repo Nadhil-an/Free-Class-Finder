@@ -22,10 +22,12 @@
                <h4 class="fw-bold text-uppercase fst-italic text-center">Find your Free class</h4>
 
                 <div class="option-container">
-                    <form action="{% url 'searchclass' %}" method="POST">
-                        {% csrf_token %} 
 
-                    <select name="block"  class="form-select select-container" aria-label="Default select example">
+
+                    <form action="{% url 'searchclass' %}" method="GET">
+                        
+
+                    <select name="block"  class="form-select select-container" aria-label="Default select example" required>
                     <option selected>Choose Block</option>
                     {% for block in blocks %}
                     <option value="{{ block }}">{{ block }}</option>
@@ -33,14 +35,14 @@
                     
                     </select>
 
-                    <select name="day"  class="form-select select-container" aria-label="Default select example">
+                    <select name="day"  class="form-select select-container" aria-label="Default select example" required>
                     <option selected>Choose Day</option>
                     {% for day in days %}
                     <option value="{{ day }}">{{ day }}</option>
                     {% endfor %}
                     </select>
 
-                    <select name="time" class="form-select select-container" aria-label="Default select example">
+                    <select name="time" class="form-select select-container" aria-label="Default select example" required>
                     <option selected>Choose Time</option>
                     {% for time in  times %}
                     <option value="{{ time }}">{{ time }}</option>
