@@ -32,7 +32,6 @@
                     {% for block in blocks %}
                     <option value="{{ block }}">{{ block }}</option>
                     {% endfor %}
-                    
                     </select>
 
                     <select name="day"  class="form-select select-container" aria-label="Default select example" >
@@ -47,7 +46,13 @@
                     {% for time in  times %}
                     <option value="{{ time }}">{{ time }}</option>
                     {% endfor %}
-                    
+                    </select>
+
+                    <select name="floor" class="form-select select-container" aria-label="Default select example" >
+                    <option selected disabled hidden value="">Choose Floor</option>
+                    {% for floor in  floors %}
+                    <option value="{{ floor }}">{{ floor }}</option>
+                    {% endfor %}
                     </select>
                     <input type="submit" value="Find" class="submit">
                     </form>
