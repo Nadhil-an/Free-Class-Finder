@@ -28,12 +28,6 @@ def searchclass(request):
 
     return redirect('login')
 
-def all_classes(request):
-    return _filter_classes(request, filter_type='all')
-
-def available_classes(request):
-    return _filter_classes(request, filter_type='available')
-
 def occupied_classes(request):
     block = request.GET.get('block')
     day = request.GET.get('day')
@@ -45,32 +39,32 @@ def occupied_classes(request):
         return render(request, 'base.html', context)
     else:
         return redirect('searchclass')
+    
 
-def _filter_classes(request, filter_type=None):
+def available_classes(request):
     block = request.GET.get('block')
     day = request.GET.get('day')
     time = request.GET.get('time')
 
     if block and day and time:
-        if filter_type == 'all':
-            # Only filter by block and day
-            classes = FreeClass.objects.filter(Block=block, Day=day, Time=time).order_by('Room_No')
-
-        elif filter_type == 'available':
-            if time:
-                classes = FreeClass.objects.filter(Block=block, Day=day, Time=time, is_occupied=True).order_by('Room_No')
-            else:
-                return redirect('searchclass')
-
-        else:
-            return redirect('searchclass')
-
-        context = {
-            'classes': classes,
-            'block': block,
-            'day': day,
-            'time': time
-        }
+        classes = FreeClass.objects.filter(Block=block,Day=day,Time=time,is_occupied=True).order_by('Room_No')
+        context = {'classes': classes, 'block': block, 'day': day, 'time': time}
         return render(request, 'base.html', context)
+    else:
+        return redirect('searchclass')
+    
+def all_classes(request):
+    block = request.GET.get('block')
+    day = request.GET.get('day')
+    time = request.GET.get('time')
 
-    return redirect('login')
+    if block and day and time:
+        classes = FreeClass.objects.filter(Block=block,Day=day,Time=time).order_by('Room_No')
+        context = {'classes': classes, 'block': block, 'day': day, 'time': time}
+        return render(request, 'base.html', context)
+    else:
+        return redirect('searchclass')
+
+
+
+

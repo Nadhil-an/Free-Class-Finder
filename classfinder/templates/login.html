@@ -27,23 +27,23 @@
                     <form action="{% url 'searchclass' %}" method="GET">
                         
 
-                    <select name="block"  class="form-select select-container" aria-label="Default select example" required>
-                    <option selected>Choose Block</option>
+                    <select name="block"  class="form-select select-container" aria-label="Default select example" >
+                    <option selected disabled hidden value="" >Choose Block</option>
                     {% for block in blocks %}
                     <option value="{{ block }}">{{ block }}</option>
                     {% endfor %}
                     
                     </select>
 
-                    <select name="day"  class="form-select select-container" aria-label="Default select example" required>
-                    <option selected>Choose Day</option>
+                    <select name="day"  class="form-select select-container" aria-label="Default select example" >
+                    <option  selected disabled hidden value="">Choose Day</option>
                     {% for day in days %}
                     <option value="{{ day }}">{{ day }}</option>
                     {% endfor %}
                     </select>
 
-                    <select name="time" class="form-select select-container" aria-label="Default select example" required>
-                    <option selected>Choose Time</option>
+                    <select name="time" class="form-select select-container" aria-label="Default select example" >
+                    <option selected disabled hidden value="">Choose Time</option>
                     {% for time in  times %}
                     <option value="{{ time }}">{{ time }}</option>
                     {% endfor %}
