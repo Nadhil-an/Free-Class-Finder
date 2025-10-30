@@ -54,12 +54,12 @@ class FreeClass(models.Model):
     )
 
     Block = models.CharField(max_length=10)
-    Day = models.CharField(max_length=20,choices=DAY_CHOICES)
-    Time= models.CharField(max_length=10,choices=TIME_CHOICES)
+    Day = models.CharField(max_length=20)
+    Time= models.CharField(max_length=10)
     Floor = models.CharField(max_length=20)
     Room_No = models.CharField(max_length=10)
-    Room_Status = models.CharField(max_length=20,choices=FLOOR_CHOICE)
-    Room_Type = models.CharField(max_length=20,choices=TYPE_CHOICE)
+    Room_Status = models.CharField(max_length=20)
+    Room_Type = models.CharField(max_length=20)
     is_occupied = models.BooleanField(default=False)
 
     def __str__(self):
