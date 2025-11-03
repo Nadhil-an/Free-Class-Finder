@@ -18,18 +18,36 @@ def login(request):
     return render(request, 'login.html', context)
 
 
-# 🔹 Common function to handle class filtering
+# 🔹 Common Query Function
 def get_classes(block, day, time, floor, occupied=None):
     query = FreeClass.objects.filter(Block=block, Day=day, Time=time, Floor=floor)
 
-    # Apply occupied filter if provided
+    # Apply filter if 'occupied' flag is given
     if occupied is not None:
         query = query.filter(is_occupied=occupied)
 
     return query.order_by('Room_No')
 
 
-# 🔹 Search All Classes
+# 🔹 Default Search: Show Available Classes
+def searchclass(request):
+    block = request.GET.get('block')
+    day = request.GET.get('day')
+    time = request.GET.get('time')
+    floor = request.GET.get('floor')
+
+    # Default → show only available classes
+    if all([block, day, time, floor]):
+        classes = get_classes(block, day, time, floor, occupied=False)
+        return render(request, 'base.html', {
+            'classes': classes,
+            'block': block, 'day': day, 'time': time, 'floor': floor
+        })
+
+    return redirect('login')
+
+
+# 🔹 Show All Classes (when filter clicked)
 def all_classes(request):
     block = request.GET.get('block')
     day = request.GET.get('day')
@@ -46,7 +64,7 @@ def all_classes(request):
     return redirect('login')
 
 
-# 🔹 Available Classes
+# 🔹 Available Classes (filter button)
 def available_classes(request):
     block = request.GET.get('block')
     day = request.GET.get('day')
@@ -63,7 +81,7 @@ def available_classes(request):
     return redirect('login')
 
 
-# 🔹 Occupied Classes
+# 🔹 Occupied Classes (filter button)
 def occupied_classes(request):
     block = request.GET.get('block')
     day = request.GET.get('day')
@@ -78,8 +96,3 @@ def occupied_classes(request):
         })
 
     return redirect('login')
-
-
-# 🔹 Default Search Route (redirect to all_classes)
-def searchclass(request):
-    return all_classes(request)
