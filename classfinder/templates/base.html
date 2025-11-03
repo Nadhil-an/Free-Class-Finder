@@ -60,9 +60,9 @@
                     <td>{{ c.Floor }}</td>
                     <td>{{ c.Block }}</td>
                     {% if not c.is_occupied %}
-                        <td><span class="badge bg-danger">{{ c.Room_Status }}</span></td>
-                    {% else %}
                         <td><span class="badge bg-success">{{ c.Room_Status }}</span></td>
+                    {% else %}
+                        <td><span class="badge bg-danger">{{ c.Room_Status }}</span></td>
                     {% endif %}
                 </tr>
             {% endfor %}
