@@ -1,7 +1,7 @@
-import os
 from pathlib import Path
 import dj_database_url
 from decouple import config
+import os
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -105,4 +105,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # ------------------------------------------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
