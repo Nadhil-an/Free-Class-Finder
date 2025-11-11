@@ -64,7 +64,7 @@ DATABASES = {
     'default': dj_database_url.config(
         default=config('DATABASE_URL', default='postgresql://postgres:12345678@localhost:5432/free_class_db'),
         conn_max_age=600,
-        ssl_require=False
+        ssl_require=True
     )
 }
 
@@ -90,11 +90,11 @@ USE_TZ = True
 # STATIC & MEDIA
 # ------------------------------------------------------------
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'classfinder' / 'static']
+STATICFILES_DIRS = [BASE_DIR / 'static']
+
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # WhiteNoise setup
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
