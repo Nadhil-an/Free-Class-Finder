@@ -63,13 +63,25 @@ WSGI_APPLICATION = 'classfinder.wsgi.application'
 # ------------------------------------------------------------
 # DATABASE (PostgreSQL via dj-database-url)
 # ------------------------------------------------------------
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL', default='postgresql://postgres:12345678@localhost:5432/free_class_db'),
-        conn_max_age=600,
-        ssl_require=True
-    )
-}
+DATABASE_URL = config('DATABASE_URL', default='')
+# Detect Render environment
+if 'RENDER' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=True
+        )
+    }
+else:
+    # Local or build environment (no SSL)
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=DATABASE_URL or 'postgresql://postgres:12345678@localhost:5432/free_class_db',
+            conn_max_age=600,
+            ssl_require=False
+        )
+    }
 
 # ------------------------------------------------------------
 # PASSWORD VALIDATION
