@@ -1,1 +1,2 @@
-web: gunicorn classfinder.wsgi:application
+web: gunicorn classfinder.classfinder.wsgi:application
+
