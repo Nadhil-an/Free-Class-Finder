@@ -38,7 +38,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'classfinder.urls'
+ROOT_URLCONF = 'classfinder.classfinder.urls'
+
 
 TEMPLATES = [
     {
