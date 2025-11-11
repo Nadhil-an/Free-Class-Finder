@@ -38,13 +38,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'classfinder.classfinder.urls'
+ROOT_URLCONF = 'classfinder.urls'
+
 
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,4 +107,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # ------------------------------------------------------------
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
+ALLOWED_HOSTS = ['free-class-finder.onrender.com', 'localhost', '127.0.0.1']
+
+
+
+print("✅ Django running with:", DATABASES['default']['ENGINE'])
